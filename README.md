@@ -131,8 +131,9 @@ Class attributes are private and accessed through getters and setters with valid
 
 6. Print Library Report
 7. Search by ID
-8. Show Available Items Only
-9. Terminate the Program
+8. Search by Title
+9. Show Available Items Only
+10. Terminate the Program
 ```
 
 ## Example Item IDs
@@ -175,8 +176,6 @@ The application handles:
 * Search by author
 * Member borrowing history
 * Due date tracking
-* GUI using JavaFX or Swing
-* Database integration
 
 ## Author
 
