@@ -164,12 +164,20 @@ public class Library {
             if (entry.getKey().equals(id)) {
                 entry.getValue().displayInfo();
             } else {
-                throw new LibraryException("Item with ID " + entry.getValue().getItemId()+ "is not found");
+                throw new LibraryException("Item with ID " + id + "is not found");
             }
-
         }
     }
 
+    public void searchItemTitle (String title) throws LibraryException {
+        for (Map.Entry <String, LibraryItem> entry : libraryItems.entrySet()) {
+            if (entry.getValue().getTitle().equals(title)) {
+                entry.getValue().displayInfo();
+            } else {
+                throw new LibraryException("Item with Title " + title + "is not found");
+            }
+        }
+    }
     public void showAvailableItems () {
         for (Map.Entry <String, LibraryItem> entry : libraryItems.entrySet()) {
             if (entry.getValue().isAvailable()) {

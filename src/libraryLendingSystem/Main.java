@@ -44,7 +44,7 @@ public class Main {
                 System.out.println("Invalid input: " + e.getMessage());
             }
 
-        } while (selectedOption != 9);
+        } while (selectedOption != 10);
     }
 
     private static void displayLibraryMenu() {
@@ -59,8 +59,9 @@ public class Main {
         System.out.println("=====Bouns Requirements=====");
         System.out.println("6. Print Library Report");
         System.out.println("7. Search by ID");
-        System.out.println("8. Show Available Items Only");
-        System.out.println("9. Terminate the program");
+        System.out.println("8. Search by Title");
+        System.out.println("9. Show Available Items Only");
+        System.out.println("10. Terminate the program");
     }
 
     /**
@@ -100,16 +101,15 @@ public class Main {
                 break;
             }
             case 7:
-                try {
-                    getItemById();
-                }catch (LibraryException e) {
-                    System.out.println(e.getMessage());
-                }
+                searchByID();
                 break;
             case 8:
-                library.showAvailableItems();
+                searchByTitle();
                 break;
             case 9:
+                library.showAvailableItems();
+                break;
+            case 10:
                 System.out.println("See you again. !Goodbye");
                 break;
             default:
@@ -234,11 +234,19 @@ public class Main {
         System.out.println("Item is returned successfully");
     }
 
-    private static void getItemById () throws LibraryException {
+    private static void searchByID() throws LibraryException {
         System.out.println("Enter Item ID please, ");
         String itemID = scanner.next();
 
         library.searchItemById(itemID);
+    }
+
+    private static void searchByTitle () throws LibraryException {
+        scanner.nextLine();
+        System.out.println("Enter Item Title Please, ");
+        String title = scanner.nextLine();
+
+        library.searchItemTitle(title);
     }
 
 }
