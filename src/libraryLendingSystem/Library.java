@@ -160,11 +160,12 @@ public class Library {
      * @throws LibraryException
      */
     public void searchItemById (String id) throws LibraryException {
+        String upperCaseID = id.toUpperCase();
         for (Map.Entry <String, LibraryItem> entry : libraryItems.entrySet()) {
-            if (entry.getKey().equals(id)) {
+            if (entry.getKey().equals(upperCaseID)) {
                 entry.getValue().displayInfo();
             } else {
-                throw new LibraryException("Item with ID " + id + "is not found");
+                throw new LibraryException("Item with ID " + upperCaseID + "is not found");
             }
         }
     }
